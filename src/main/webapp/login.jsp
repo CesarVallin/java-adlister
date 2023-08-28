@@ -9,8 +9,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<% if (request.getMethod().equalsIgnoreCase("POST") && request.getParameter("username").equalsIgnoreCase("admin") && request.getParameter("password").equalsIgnoreCase("password")) {
-    response.sendRedirect("/profile.jsp");
+<% if (request.getMethod().equalsIgnoreCase("POST"))  {
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    if (username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("password")) {
+        response.sendRedirect("/profile.jsp");
+    }
 }%>
 
 <%--<c:if test="${param.username.equalsIgnoreCase('admin')}">--%>
