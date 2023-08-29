@@ -10,6 +10,8 @@ public class Incorrect extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
         boolean win = false;
         req.setAttribute("win", win); // or you can do it all in one line
         req.getRequestDispatcher("outcome.jsp").forward(req, resp);

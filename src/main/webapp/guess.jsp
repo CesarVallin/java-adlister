@@ -13,7 +13,7 @@
     <title>guess</title>
 </head>
 <body>
-<c:if test="${param.error == 'invalid'}">
+<c:if test="${param.error == 'invalid' || param.error =='invalidNumber'}">
   <h1>Invalid input </h1>
 </c:if>
 

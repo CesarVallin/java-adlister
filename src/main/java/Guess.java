@@ -29,8 +29,9 @@ public class Guess extends HttpServlet {
             return;
         }
 
+
         if (guessNumber != 1 && guessNumber != 2 && guessNumber != 3) {
-            resp.sendRedirect("/guess");
+            resp.sendRedirect("/guess?error=invalidNumber");
             return;
         }
 
@@ -39,9 +40,9 @@ public class Guess extends HttpServlet {
         int randomValue = random.nextInt(3) + 1;
 
         if (guessNumber == randomValue) {
-            resp.sendRedirect("/correct");
+            resp.sendRedirect("/correct?randomValue="+randomValue+"&uguessNumber="+guessNumber);
         } else {
-            resp.sendRedirect("/incorrect");
+            resp.sendRedirect("/incorrect??randomValue="+randomValue+"&uguessNumber="+guessNumber);
         }
 
     }
