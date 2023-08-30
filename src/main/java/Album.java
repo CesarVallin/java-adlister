@@ -1,5 +1,6 @@
 public class Album {
-    private int id;
+    /** instance variables */
+    private long id;
     private String artist;
     private String name;
     private int release_date;
@@ -20,7 +21,7 @@ public class Album {
 
     /** Getters and Setters */
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
