@@ -13,6 +13,11 @@ public class Author {
 
     }
 
+    public Author(String first_name, String last_name) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+    }
+
     public Author (String first_name, String last_name, List<Quote> quotes) {
         this.first_name = first_name;
         this.last_name = last_name;
@@ -49,5 +54,10 @@ public class Author {
 
     public void setQuotes(List<Quote> quotes) {
         this.quotes = quotes;
+    }
+
+    /** Method to add quotes */
+    public void addQuote(Quote quote) {
+        this.quotes.add(quote);
     }
 }

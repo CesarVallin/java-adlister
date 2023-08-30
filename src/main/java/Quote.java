@@ -2,7 +2,7 @@ public class Quote {
     /** Instance variables */
     private long id;
     private String content;
-    private long author_id;
+    private Author author;
 
 
     /** Constructors */
@@ -11,12 +11,17 @@ public class Quote {
 
     }
 
-    public Quote(String content, long author_id) {
+    public Quote(String content) {
         this.content = content;
-        this.author_id = author_id;
+    }
+
+    public Quote(String content, Author author) {
+        this.content = content;
+        this.author = author;
     }
 
     /** Getters and Setters */
+
     public long getId() {
         return id;
     }
@@ -33,11 +38,11 @@ public class Quote {
         this.content = content;
     }
 
-    public long getAuthor_id() {
-        return author_id;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAuthor_id(long author_id) {
-        this.author_id = author_id;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }

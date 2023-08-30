@@ -3,7 +3,7 @@ public class Album {
     private long id;
     private String artist;
     private String name;
-    private int release_date;
+    private int releaseDate;
     private double sales;
     private String genre;
 
@@ -11,10 +11,10 @@ public class Album {
     public Album() {
     }
 
-    public Album(String artist, String name, int release_date, double sales, String genre) {
+    public Album(String artist, String name, int releaseDate, double sales, String genre) {
         this.artist = artist;
         this.name = name;
-        this.release_date = release_date;
+        this.releaseDate = releaseDate;
         this.sales = sales;
         this.genre = genre;
     }
@@ -45,12 +45,12 @@ public class Album {
         this.name = name;
     }
 
-    public int getRelease_date() {
-        return release_date;
+    public int getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setRelease_date(int release_date) {
-        this.release_date = release_date;
+    public void setReleaseDate(int release_date) {
+        this.releaseDate = release_date;
     }
 
     public double getSales() {
