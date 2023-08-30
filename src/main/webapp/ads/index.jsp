@@ -10,7 +10,7 @@
 
 <html>
 <head>
-    <title>All Ads</title>
+    <title>All daos.Ads</title>
 </head>
 <body>
     <h1>All ads</h1>

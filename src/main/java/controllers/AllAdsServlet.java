@@ -1,3 +1,9 @@
+package controllers;
+
+import daos.Ads;
+import daos.DaoFactory;
+import models.Ad;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/ads/all")
+@WebServlet("/ads")
 public class AllAdsServlet extends HttpServlet {
 
     @Override
