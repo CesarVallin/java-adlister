@@ -11,9 +11,9 @@ public class LogoutServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
+        HttpSession session = req.getSession(); // Not needed to instantiate, it just keeps code cleaner.  The session object already comes built in with Tomcat.
 //        session.invalidate();
-        session.removeAttribute("username"); // similar outcome as above.
+        session.removeAttribute("user"); // similar outcome as above.
         resp.sendRedirect("/login");
 
     }

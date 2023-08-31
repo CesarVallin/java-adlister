@@ -9,8 +9,8 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        if(session.getAttribute("username") != null) {
+        HttpSession session = request.getSession(); // Not needed to instantiate, it just keeps code cleaner.  The session object already comes built in with Tomcat.
+        if(session.getAttribute("user") != null) {
             response.sendRedirect("/profile");
         } else {
             request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
@@ -19,14 +19,14 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(); // Not needed to instantiate, it just keeps code cleaner.  The session object already comes built in with Tomcat.
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         boolean validAttempt = username.equals("admin") && password.equals("password");
 
         if (validAttempt) {
-            session.setAttribute("username", username);
+            session.setAttribute("user", username);
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");

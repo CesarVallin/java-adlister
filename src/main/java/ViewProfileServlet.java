@@ -9,9 +9,9 @@ import java.io.IOException;
 @WebServlet(name = "ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(); // Not needed to instantiate, it just keeps code cleaner.  The session object already comes built in with Tomcat.
 
-        if (session.getAttribute("username") != null) {
+        if (session.getAttribute("user") != null) {
             request.getRequestDispatcher("WEB-INF/profile.jsp").forward(request, response);
             return; // return here is just a way to end the statement.  return keyword is used to kick us out here.
         }
