@@ -23,6 +23,9 @@ public class MySQLUsersDao implements Users{
         }
     }
 
+    /**
+     * Got query, reading from it.
+     * */
     @Override
     public User findByUsername(String username) {
         PreparedStatement stmt = null;
