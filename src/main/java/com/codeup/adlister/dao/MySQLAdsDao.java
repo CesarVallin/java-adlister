@@ -29,10 +29,10 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> all() {
-        PreparedStatement stmt = null;
+//        PreparedStatement stmt = null;
         try {
             String sql = "SELECT * FROM ads";
-            stmt = connection.prepareStatement(sql);
+            PreparedStatement stmt = connection.prepareStatement(sql);
 
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
@@ -43,10 +43,10 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public Long insert(Ad ad) {
-        PreparedStatement stmt = null;
+//        PreparedStatement stmt = null;
         try {
             String sql = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
-            stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());

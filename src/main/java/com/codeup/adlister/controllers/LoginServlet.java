@@ -29,6 +29,7 @@ public class LoginServlet extends HttpServlet {
         // TODO: check the submitted password against what you have in your database
         boolean validAttempt = false;
 
+        /** User object variable, think of it as String stringVariable*/
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
         // Check if user is null, resend to login `return`
