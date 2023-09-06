@@ -23,12 +23,12 @@ public class CreateAdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        User loggedInUser = (User) request.getSession().getAttribute("user");
+        User loggedInUser = (User) request.getSession().getAttribute("user");
+        /** This is just a way to access the user object already set in session */
 
 
         Ad ad = new Ad(
-//                ((User) request.getSession().getAttribute("user")).getId(),
-                (Long) request.getSession().getAttribute("user_id"),
+                loggedInUser.getId(),
             request.getParameter("title"),
             request.getParameter("description")
         );
