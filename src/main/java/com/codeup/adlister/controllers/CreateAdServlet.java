@@ -24,7 +24,9 @@ public class CreateAdServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User loggedInUser = (User) request.getSession().getAttribute("user");
-        /** This is just a way to access the user object already set in session */
+        /** This is just a way to access the user object already set in session
+         * Without the casted (User), loggedInUser will only be a generic Object, not a User obj
+         * */
 
 
         Ad ad = new Ad(
