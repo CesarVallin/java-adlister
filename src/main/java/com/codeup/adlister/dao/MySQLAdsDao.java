@@ -54,8 +54,12 @@ public class MySQLAdsDao implements Ads {
 
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
+
+            if (rs.next()) {
+                return rs.getLong(1);
+            } else {
+                return -1L;
+            }
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
@@ -79,8 +83,8 @@ public class MySQLAdsDao implements Ads {
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
-        while (rs.next()) {
-            ads.add(extractAd(rs));
+        while (rs.next()) { // While there is a next row...
+            ads.add(extractAd(rs)); // extractAd method used here...
         }
         return ads;
     }

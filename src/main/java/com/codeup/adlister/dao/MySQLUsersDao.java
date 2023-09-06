@@ -33,7 +33,7 @@ public class MySQLUsersDao implements Users{
             String sql = "SELECT * FROM users WHERE username = ?";
 
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1, username);
+            stmt.setString(1, username); // setting into the statement.
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -46,7 +46,7 @@ public class MySQLUsersDao implements Users{
                 return user;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error finding user by username " + username + ".", e);
         }
         return null;
     }
@@ -64,10 +64,13 @@ public class MySQLUsersDao implements Users{
 
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
+            if (rs.next()) {
+                return rs.getLong(1);
+            }
+
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new user.", e);
         }
+        return -1L;
     }
 }
